@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import { Container } from "react-bootstrap"
 import styled from 'styled-components';
-import { auth } from "../../../utils/firebase"
-import extract from "../../../utils/extractValue"
-import CartDropdown from "../../cart-dropdown/containers/CartDropdown";
+import { auth } from "lib/utils/firebase"
 
 const Navbar = styled.div`
   display: flex;
@@ -27,25 +25,22 @@ const Nav = styled.div`
   }
 `
 export default ({ currentUser }) => {
+  const user = currentUser?.currentUser
   return (
     <Container>
       <Navbar>
         <div className="title">
-          <h1>Dixit</h1>
+          <h1>DS</h1>
         </div>
         <Nav>
-          {/* <Link to="/"> Home</Link> */}
-          <Link to="/stockx"> Stockx</Link>
-          {/* {
-            extract(["currentUser"], currentUser) ? (
-              <Link to="/" onClick={() => auth.signOut()}>Log out</Link>
-
-            ) : (
-                <Link to="/signin">Sign in</Link>
-              )
+          <Link to="/stockx"> Stockx</Link> 
+          {user === null &&
+            <>
+              <Link to="/signin">Sign in</Link>
+              <Link to="/signup">Sign up</Link>
+            </>
           }
-          <CartDropdown
-            img="/images/shopping-cart.svg" /> */}
+          {user?.id && <Link to="/" onClick={() => auth.signOut()}>Log out</Link>}
         </Nav>
       </Navbar>
     </Container>

@@ -1,10 +1,9 @@
 import React, { useState } from "react"
 import { Container, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
-import FormInput from "../../lib/components/inputs/formInput"
-import { auth, signInWithGoogle } from "../../lib/utils/firebase"
+import FormInput from "lib/components/inputs/formInput"
+import { auth, signInWithGoogle } from "lib/utils/firebase"
 import { NotificationManager } from "react-notifications";
-import _ from "underscore"
 
 export default () => {
 
@@ -17,6 +16,8 @@ export default () => {
             await auth.signInWithEmailAndPassword(email, password);
             setEmail("")
             setPassword("")
+            NotificationManager.success("Successfully signed in")
+
         } catch (error) {
             NotificationManager.error(error.message)
         }

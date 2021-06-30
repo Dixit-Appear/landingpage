@@ -6,6 +6,7 @@ import SearchBar from "lib/components/Search-bar.jsx"
 import TopSneaker from "lib/components/sneaker-card/SneakerCard"
 import SneakerResults from "lib/components/sneaker-card/SneakerSrcCard"
 import _ from "underscore"
+import './Stockx.scss'
 
 export default ({ topSneakers, isLoadedSneakers }) => {
 

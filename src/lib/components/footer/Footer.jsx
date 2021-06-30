@@ -15,12 +15,8 @@ class Service extends Component {
   render(){
     return(
       <Footer>
-        <div className="payment">
-          <Image src={`${process.env.PUBLIC_URL}/images/payment.png`} alt="kaws" className="img-payment" />
-        </div>
         <div className="copyright">
-          <h2>DS</h2>
-          <p>copyright ©2019, Edoardo Olivieri</p>
+          <h2>DS ©2021</h2>
         </div>
       </Footer>
     );
